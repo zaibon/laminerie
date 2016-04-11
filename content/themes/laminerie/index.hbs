@@ -1,0 +1,31 @@
+{{!< default}}
+{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
+
+{{! The big featured header }}
+<header class="main-header" style="background-image: url({{#if @blog.cover}}{{@blog.cover}}{{else}}{{asset "img/cover.jpg"}}){{/if}}">
+    <nav class="main-nav overlay clearfix">
+        {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" /></a>{{/if}}
+        <a class="subscribe-button icon-feed" href="{{@blog.url}}/rss/">Subscribe</a>
+        <a class="subscribe-button icon-irc" href="{{@blog.url}}/irc/">Chat IRC</a>
+        <section class="social">
+            <a href="https://twitter.com/laminerie"><i class="fa fa-twitter-square fa-2x"></i></a>
+            <a href="https://www.facebook.com/laminerie"><i class="fa fa-facebook-square fa-2x"></i></a>
+            <a href="https://plus.google.com/+LaminerieEu/posts"><i class="fa fa-google-plus-square fa-2x"></i></a>
+         </section>
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">{{@blog.title}}</h1>
+            <h2 class="page-description">{{@blog.description}}</h2>
+        </div>
+    </div>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+</header>
+
+{{! The main content area on the homepage }}
+<main id="content" class="content" role="main">
+
+    {{! The tag below includes the post loop - partials/loop.hbs }}
+    {{> "loop"}}
+
+</main>
