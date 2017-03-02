@@ -1,7 +1,7 @@
 {
     "core": {
         "databaseVersion": {
-            "defaultValue": "004"
+            "defaultValue": "009"
         },
         "dbHash": {
             "defaultValue": null
@@ -11,6 +11,12 @@
         },
         "displayUpdateNotification": {
             "defaultValue": null
+        },
+        "seenNotifications": {
+            "defaultValue": "[]"
+        },
+        "migrations": {
+            "defaultValue": "{}"
         }
     },
     "blog": {
@@ -29,21 +35,28 @@
         "defaultLang": {
             "defaultValue": "en_US",
             "validations": {
-                "isNull": false
+                "isEmpty": false
             }
         },
         "postsPerPage": {
             "defaultValue": "5",
             "validations": {
-                "isNull": false,
+                "isEmpty": false,
                 "isInt": true,
                 "isLength": [1, 1000]
+            }
+        },
+        "activeTimezone": {
+            "defaultValue": "Etc/UTC",
+            "validations": {
+                "isTimezone": true,
+                "isEmpty": false
             }
         },
         "forceI18n": {
             "defaultValue": "true",
             "validations": {
-                "isNull": false,
+                "isEmpty": false,
                 "isIn": [["true", "false"]]
             }
         },
@@ -55,10 +68,19 @@
                 "notContains": "/ghost/"
             }
         },
+        "amp": {
+            "defaultValue": "true"
+        },
         "ghost_head": {
             "defaultValue" : ""
         },
         "ghost_foot": {
+            "defaultValue" : ""
+        },
+        "facebook": {
+            "defaultValue" : ""
+        },
+        "twitter": {
             "defaultValue" : ""
         },
         "labs": {
@@ -66,6 +88,9 @@
         },
         "navigation": {
             "defaultValue": "[{\"label\":\"Home\", \"url\":\"/\"}]"
+        },
+        "slack": {
+            "defaultValue": "[{\"url\":\"\"}]"
         }
     },
     "theme": {
